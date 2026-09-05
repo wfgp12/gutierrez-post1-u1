@@ -18,3 +18,21 @@ de patrones GoF en Spring Framework (parte-2-analisis-gof-spring/).
 
 Proyecto Maven que refactoriza OrderProcessor aplicando SRP, OCP y
 DIP. Ver parte-1-refactorizacion-solid/.
+
+## Parte 2 — Análisis de Patrones GoF en Spring
+
+| # | Patrón | Categoría | Clase en Spring |
+|---|--------|-----------|-----------------|
+| 1 | Singleton | Creacional | `org.springframework.beans.factory.support.DefaultSingletonBeanRegistry` |
+| 2 | Proxy | Estructural | `org.springframework.aop.framework.JdkDynamicAopProxy` |
+| 3 | Observer | Comportamiento | `org.springframework.context.ApplicationListener` / `ApplicationEventPublisher` |
+
+Ver parte-2-analisis-gof-spring/documento-analisis.md.
+
+## Herramientas utilizadas
+- Java 17, Apache Maven, VS Code, Git, GitHub
+- Código fuente de Spring Framework (investigación)
+
+## Conclusiones
+
+La refactorización de `OrderProcessor` mostró en la práctica cómo un God Object concentra responsabilidades que deberían vivir en clases independientes, y cómo aplicar SRP, OCP y DIP reduce el acoplamiento y facilita agregar comportamiento nuevo (como un tipo de descuento) sin modificar código existente. El análisis de Spring Framework confirmó que estos mismos principios sostienen el diseño de un framework maduro: Singleton controla el ciclo de vida de los beans, Proxy permite añadir comportamiento transversal (AOP) sin tocar las clases de negocio, y Observer desacopla a los publicadores de eventos de sus consumidores. La lección principal es que los patrones GoF no son un ejercicio académico aislado, sino la forma concreta en que los principios SOLID se materializan en decisiones de diseño reales.
